@@ -1,22 +1,21 @@
 # Hotel Management App
 
-A simple tool to manage hotel operations, guest bookings, and room availability using Python and SQLite.
+A web application that helps users find and book hotels based on location and availability using a local JSON database.
 
 ## What it does
 
-- Manages guest registration and database records
-- Handles room assignments and availability tracking
-- Processes check-in and check-out workflows
-- Calculates basic billing and stay totals
-- Provides a dashboard for occupancy overview
+- Reads hotel data from a JSON database
+- Locates hotels within a specific radius
+- Displays real-time room availability
+- Handles booking requests
+- Calculates total costs based on stay duration
 
 ## Getting started
 
 ### Requirements
 
-- Python 3.9+
-- SQLite3 (included with Python)
-- Tkinter (included with Python)
+- Java Development Kit (JDK) 17+
+- Maven 3.6+ (or use the included wrapper)
 
 ### Setup
 
@@ -26,28 +25,27 @@ A simple tool to manage hotel operations, guest bookings, and room availability 
 2. Navigate to the directory:
    cd Hotel-Management-App
 
-3. Create a virtual environment:
-   python -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-
-4. Install dependencies:
-   pip install -r requirements.txt
+3. Build the project:
+   ./mvnw clean install  # On Windows: mvnw.cmd clean install
 
 ### Usage
 
-Run the main script to start the application:
-python main.py
+Run the application:
+./mvnw spring-boot:run  # On Windows: mvnw.cmd spring-boot:run
+
+Then open http://localhost:8080
 
 ## How it works
 
-1. Initializes a local SQLite database for persistent storage
-2. Launches a Tkinter GUI for user interaction
-3. Validates guest information and room numbers
-4. Updates room status in real-time upon check-in
-5. Generates stay summaries for checkout
+1. App initializes and loads hotel data from the JSON source
+2. User queries for hotels in a specific location
+3. Backend filters results based on radius logic
+4. User selects a room and confirms booking
+5. System updates availability for the selected dates
 
 ## Project structure
 
-- main.py - Main entry point and GUI
-- database.py - SQL queries and DB connection
-- assets/ - UI icons and images
+- src/main/java - Application source code and logic
+- src/main/resources - Configuration and JSON database
+- target/ - Compiled build artifacts
+- pom.xml - Project dependencies and build configuration
